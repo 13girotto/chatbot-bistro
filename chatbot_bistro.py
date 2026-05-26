@@ -176,5 +176,7 @@ def receber_mensagem():
         return jsonify({"resposta": "Fiquei na dúvida sobre o seu pedido. Pode detalhar melhor sua dúvida?"})
 
 if __name__ == "__main__":
-    # Roda o servidor localmente na porta 5000
-    app.run(port=5000, debug=False)
+    import os
+    porta = int(os.environ.get("PORT", 5000))
+
+    app.run(host="0.0.0.0", port=porta, debug=False)
